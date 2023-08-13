@@ -1,0 +1,16 @@
+SO                         ./textures/img.xpm
+
+NO ./textures/img.xpm
+C  135,206,235
+
+WE ./textures/img.xpm
+EA ./textures/img.xpm
+
+F 91,58,0
+
+11111111
+10000001
+10000001
+100N0001
+10000001
+11111111
