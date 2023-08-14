@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 08:05:19 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 01:06:07 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 04:12:49 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ int motion(t_test *test);
 void ft_ray(t_test *test);
 
 void  put_pixel_in_img(t_test *T, int x, int y,int color);
-int getcolor(t_img *wall,int n, float m);
+int getcolor(t_img *wall,int n);
 void	mini_map(t_test *test);
+
+
+void	draw_celling(t_test *test, int k, int *j);
+void	draw_wall(t_test *test, int k, int *j, int dir);
+void	draw_floor(t_test *test, int k, int j);
+void	render(t_test *test);
+
 #endif

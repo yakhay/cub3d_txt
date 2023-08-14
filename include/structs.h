@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 11:21:37 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 01:04:32 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 03:58:40 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_img
 	int		endian;
 	int		width;
 	int		heigth;
+	float	scale;
 } t_img;
 
 
@@ -86,10 +87,13 @@ typedef struct s_game
 typedef struct s_test
 {
 	float	alpha;
-	float	r;
-    float theta;
-    int m_r;
-	int m_l;
+	char	v_or_h;
+	float	h_wall;
+	double	r;
+	int		start;
+    float	theta;
+    int		m_r;
+	int		m_l;
 	int m_u;
 	int m_d;
 	int rot_rhit;

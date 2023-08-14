@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 01:05:34 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 01:05:48 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 03:45:57 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void  put_pixel_in_img(t_test *T, int x, int y,int color)
     *(unsigned int*)add = color;
 }
 
-int getcolor(t_img *wall,int n, float m)
+int getcolor(t_img *wall,int n)
 {
     char    *add;
 
-    if (n >= wall->heigth || n < 0 || m >= wall->width || m < 0)
+    if (n >= wall->heigth || n < 0 ||  wall->scale >= wall->width ||  wall->scale < 0)
         return (0x4246B7);
-    add = wall->addr + (int)n * wall->line_length + (int)m * (wall->bits_per_pixel / 8);
+    add = wall->addr + (int)n * wall->line_length + (int) wall->scale * (wall->bits_per_pixel / 8);
     return (*(unsigned int*)add);
 }
