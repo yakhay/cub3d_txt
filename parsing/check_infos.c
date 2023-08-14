@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:14:18 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/06 19:32:37 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/13 23:37:51 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_firsts_infos(int fd, t_game *game)
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
-		printerror("Empty Map!!", NULL);
+		printerror("Empty file!!", NULL);
 	while (line && i < 6)
 	{
 		if (!*line)
@@ -62,12 +62,12 @@ void	check_fill_infos(t_game *game)
 		printerror("Color of celling not set", NULL);
 	if (game->color.f == -1)
 		printerror("Color of floor not set", NULL);
-	if (game->txt.ea.img == NULL)
+	if (game->txt.ea.ptr == NULL)
 		printerror("texture of EA not set", NULL);
-	if (game->txt.no.img == NULL)
+	if (game->txt.no.ptr == NULL)
 		printerror("texture of NO not set", NULL);
-	if (game->txt.so.img == NULL)
+	if (game->txt.so.ptr == NULL)
 		printerror("texture of SO not set", NULL);
-	if (game->txt.we.img == NULL)
+	if (game->txt.we.ptr == NULL)
 		printerror("texture of WE not set", NULL);
 }

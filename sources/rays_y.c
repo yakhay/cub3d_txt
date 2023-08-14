@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_y.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:06:09 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/13 18:36:33 by yakhay           ###   ########.fr       */
+/*   Updated: 2023/08/14 00:43:41 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ double ft_ray_y(t_test *info,float thet)
             y = info->py - (floor((info->py / 64) - info->ox + 1) * 64);
             x1 = y / tan(thet * M_PI/180);
 			info->yy_pxel = info->py - y;
-			info->xy_pxel = info->px + x1;
 			if (check_to_berk_posix(info, x1, y) == 0) break ;
         }
         else
@@ -79,13 +78,12 @@ double ft_ray_y(t_test *info,float thet)
             y = (floor((info->py / 64) + info->ox) * 64) - info->py;
             x1 = y / tan((thet - 180) * M_PI/180);
 			info->yy_pxel = info->py + y;
-			info->xy_pxel = info->px + x1;
 			if (check_to_berk_nigax(info, x1, y) == 0)
 				break;
         }
     }
-	// double r = peta(x1, y);
-	// info->xy_pxel = info->px + cos(thet * M_PI/180) * r;
-	// info->yy_pxel = info->py - sin(thet * M_PI/180) * r;
+	double r = peta(x1, y);
+	info->xy_pxel = info->px + cos(thet * M_PI/180) * r;
+	info->yy_pxel = info->py - sin(thet * M_PI/180) * r;
     return (peta(x1, y));
 }

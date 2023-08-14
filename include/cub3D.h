@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 08:05:19 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/09 15:02:13 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 01:06:07 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@
 
 # include "parsing.h"
 
-void	init_game(t_game *game);
-void	init_textures(t_game *game);
-void	init_raycast(t_game *game);
-void	init_speed(t_game *game);
-
-void	init_texture_fill(t_game *game, void **txt);
+void	init_game(t_test *test);
+void	init_raycast(t_test *test);
+void	init_speed(t_test *test);
+void	init_textures(t_test *game);
+void	init_texture_fill(t_test *game,t_img *txt);
 
 
 //hook
 
 
-int		ft_cross(t_game *game);
-void	ft_echap(t_game *game);
+int		ft_cross(t_test *test);
+void	ft_echap(t_test *test);
 
 
 void  mov_up(t_test *test);
@@ -44,4 +43,8 @@ int	presse_key(int key, t_test *test);
 int	relesse_key(int key, t_test *test);
 int motion(t_test *test);
 void ft_ray(t_test *test);
+
+void  put_pixel_in_img(t_test *T, int x, int y,int color);
+int getcolor(t_img *wall,int n, float m);
+void	mini_map(t_test *test);
 #endif

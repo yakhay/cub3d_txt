@@ -6,7 +6,7 @@
 /*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:04:33 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/13 21:31:32 by yakhay           ###   ########.fr       */
+/*   Updated: 2023/08/13 18:37:54 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int is_can_move(t_test *test,float t_rad, char c)
         return (-1);
     if (c == '+')
     {
-        while (i <= 8)
+        while (i <= 6)
         {
+            //printf("i==%d\n",i);
             x += cos(t_rad) * i;
 	        y -= sin(t_rad) * i;
             if (test->map[(int)y/64][(int)x/64] == '1')
@@ -35,8 +36,9 @@ int is_can_move(t_test *test,float t_rad, char c)
     }
     else
     {
-         while (i <= 8)
+         while (i <= 6)
         {
+            //printf("i==%d\n",i);
             x -= cos(t_rad) * i;
 	        y += sin(t_rad) * i;
             if (test->map[(int)y/64][(int)x/64] == '1')
@@ -44,6 +46,7 @@ int is_can_move(t_test *test,float t_rad, char c)
             i++;
         }
     }
+    //dprintf("i==%d x==%d y==%d p==%c\n",i,(int)x/64,(int)y/64,test->map[(int)y/64][(int)x/64]);
     return 0;
 }
 

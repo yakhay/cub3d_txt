@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:03:49 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/13 18:35:30 by yakhay           ###   ########.fr       */
+/*   Updated: 2023/08/14 00:19:24 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	presse_key(int key, t_test *test)
 	if (key == 0)
 		test->m_l = 1;
 	if (key == 53)
-		exit(0);
+		ft_echap(test);
 	return (0);
 }
 
@@ -72,8 +72,8 @@ int motion(t_test *test)
         if (test->theta >= 360)
             test->theta = test->theta - 360.0;
     }
-	//if (test->i == 1)
-   		ft_ray(test);
+	if (test->i == 1)
+	   	ft_ray(test);
 	test->i = 0;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:33:01 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/06 19:51:13 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:19:03 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	parse_map(int fd, t_game *game)
 {
 	t_list	*list;
-
+	
 	list = fill_list(fd);
 	check_charmap(list);
 	fill_map(game, list);
@@ -32,6 +32,8 @@ void	check_charmap(t_list *list)
 	{
 		if (list->content)
 			check_char(list->content, &check_p);
+		else
+			printerror("Empty Line in the map", NULL);
 		list = list->next;
 	}
 	if (!check_p)
@@ -49,9 +51,10 @@ void	check_char(char *str, int *check)
 			continue ;
 		else if (ft_strchr("NEWS", str[i]))
 		{
-			if (*check)
+			if (check && *check)
 				printerror("there is more than 1 palyer", NULL);
-			*check = 1;
+			if (check)
+				*check = 1;
 		}
 		else
 			printerror("invalid character !!", NULL);

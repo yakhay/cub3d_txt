@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:50:41 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/06 19:32:12 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/13 23:37:17 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ char	*join_dir(t_lexer *lexer)
 void	get_textures(t_game *game, char *type, char *path)
 {
 	if (ft_strncmp("NO", type, 2) == 0)
-		set_path(&game->txt.no.img, path, type);
+		set_path(&game->txt.no.ptr, path, type);
 	else if (ft_strncmp("SO", type, 2) == 0)
-		set_path(&game->txt.so.img, path, type);
+		set_path(&game->txt.so.ptr, path, type);
 	else if (ft_strncmp("WE", type, 2) == 0)
-		set_path(&game->txt.we.img, path, type);
+		set_path(&game->txt.we.ptr, path, type);
 	else if (ft_strncmp("EA", type, 2) == 0)
-		set_path(&game->txt.ea.img, path, type);
+		set_path(&game->txt.ea.ptr, path, type);
 	free(type);
 }
 
