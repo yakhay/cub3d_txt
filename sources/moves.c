@@ -6,7 +6,7 @@
 /*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:04:33 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/13 21:31:32 by yakhay           ###   ########.fr       */
+/*   Updated: 2023/08/14 05:12:09 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 int is_can_move(t_test *test,float t_rad, char c)
 {
-    int i = 0;
+    int i;
     float x;
     float y;
 
     x =test->px;
     y =test->py;
+    i = 0;
     if ((int)(y/64) >= test->r_len || (int)(x / 64) >= test->c_len)
         return (-1);
     if (c == '+')
     {
-        while (i <= 8)
+        while (i <= 10)
         {
             x += cos(t_rad) * i;
 	        y -= sin(t_rad) * i;
             if (test->map[(int)y/64][(int)x/64] == '1')
                 return (-1);
-                i++;
+            i++;
         }
     }
     else
     {
-         while (i <= 8)
+         while (i <= 10)
         {
             x -= cos(t_rad) * i;
 	        y += sin(t_rad) * i;

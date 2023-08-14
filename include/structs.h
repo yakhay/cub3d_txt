@@ -6,7 +6,7 @@
 /*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 11:21:37 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 03:58:40 by yakhay           ###   ########.fr       */
+/*   Updated: 2023/08/14 05:51:22 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ typedef struct s_test
     t_img *mini;
     void *mlx_win;
     t_img *imag;
+	int	x_m;
+	int	y_m;
     void *mlx_ptr;
 	t_game	*game;
 }    t_test;

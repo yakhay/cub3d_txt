@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:03:49 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 00:19:24 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 05:59:24 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int motion(t_test *test)
         if (test->theta >= 360)
             test->theta = test->theta - 360.0;
     }
-	if (test->i == 1)
+	//if (test->i == 1)
 	   	ft_ray(test);
 	test->i = 0;
 	return (0);
