@@ -6,11 +6,11 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:21:30 by yodahani          #+#    #+#             */
-/*   Updated: 2023/07/17 08:34:50 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 05:05:45 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/parsing.h"
+#include "../include/parsing.h"
 
 t_lexer	*init_lexer(char *line)
 {
@@ -38,6 +38,7 @@ void	skip_whitespace(t_lexer *lexer)
 	while (lexer->c && ft_strchr(" \n", lexer->c))
 		lexer_iter(lexer);
 }
+
 void	free_lexer(t_lexer *lexer)
 {
 	free(lexer->src);

@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:33:01 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/13 18:19:03 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 05:05:59 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	parse_map(int fd, t_game *game)
 {
 	t_list	*list;
-	
+
 	list = fill_list(fd);
 	check_charmap(list);
 	fill_map(game, list);

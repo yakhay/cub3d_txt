@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 15:47:32 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/13 18:20:17 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 05:05:19 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	alloc_map(t_game *game, t_list *list)
 	}
 	game->map.m[i] = NULL;
 }
+
 char	*skip_nl(int fd)
 {
 	char	*line;
@@ -38,7 +39,7 @@ char	*skip_nl(int fd)
 		if (*line != '\n')
 			break ;
 		free(line);
-		line  = get_next_line(fd);
+		line = get_next_line(fd);
 	}
 	if (!line)
 		printerror(" NO  map", NULL);

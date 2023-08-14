@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:41:31 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 00:27:58 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 05:04:45 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_map(t_game *game)
 	game->p = get_pos(game, '\0');
 	game_copy = copy_game(game);
 	check_walls(game_copy);
-	//free_game(game_copy);
+	free_game(game_copy);
 }
 
 void	check_walls(t_game *game)
@@ -37,7 +37,8 @@ void	check_walls(t_game *game)
 
 void	dfs(t_game *game, int x, int y)
 {
-	if (x < 0 || y < 0 || x >= (int)game->map.r_len || y >= (int) game->map.c_len)
+	if (x < 0 || y < 0 || x >= (int)game->map.r_len
+		|| y >= (int) game->map.c_len)
 		printerror("The map must be closed/surrounded by walls !!", NULL);
 	else if (game->map.m[x][y] == '1' || game->map.m[x][y] == '2')
 		return ;
