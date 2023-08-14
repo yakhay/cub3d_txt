@@ -3,7 +3,7 @@ $(addprefix $(1)/, $(patsubst %.c,%.o,$(notdir $(2))))
 endef
 
 CC=gcc-11
-CFLAGS=-Wall -Wextra -Werror #-fsanitize=address -g3
+CFLAGS=-Wall -Wextra -Werror -fsanitize=address -g3
 RM=rm -rf
 NAME=cub3D
 LIBFT=-Llibft -lft

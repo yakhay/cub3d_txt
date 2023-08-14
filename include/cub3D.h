@@ -24,8 +24,8 @@ void	init_texture_fill(t_test *game, t_img *txt);
 int		ft_cross(t_test *test);
 void	ft_echap(t_test *test);
 
-void	mov_up(t_test *test);
-void	mov_down(t_test *test);
+void	mov_up(t_test *test, float t_rad);
+void	mov_down(t_test *test, float t_rad);
 void	mov_rhit(t_test *test);
 void	mov_left(t_test *test);
 

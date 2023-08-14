@@ -18,8 +18,8 @@
 # define TILE_S 64
 # define RIGHT '-'
 # define LEFT '+'
-# define SPEED_MOVE 5
-# define SPEED_ROT 5
+# define SPEED_MOVE 3
+# define SPEED_ROT 3
 # define FOV 60
 # define MINI_W 200
 # define MINI_H 100
@@ -95,8 +95,8 @@ typedef struct s_test
 	int		i;
 	int		j;
 	int		ox;
-	int		px;
-	int		py;
+	float	px;
+	float		py;
 	float	xx_pxel;
 	float	yx_pxel;
 	float	p_dst;
