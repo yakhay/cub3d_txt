@@ -9,7 +9,7 @@ CFLAGS=-Wall -Wextra -Werror #-fsanitize=address -g3
 RM=rm -rf
 NAME=cub3D
 LIBFT=-Llibft -lft
-UTILS=printerror.c ft_malloc.c strjoin_char.c substr_line.c print_infos.c ray_utils.c free_game.c
+UTILS=printerror.c ft_malloc.c strjoin_char.c substr_line.c ray_utils.c free_game.c
 PARS = parser.c check_name.c check_infos.c lexer.c textures.c colors.c parse_map.c map_addons.c fill_map.c check_map.c
 
 SRCS= cub3D.c init.c exit_btn.c keys.c moves.c rays.c rays_x.c rays_y.c mini_map.c put_pixel.c draw.c

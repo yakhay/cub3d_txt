@@ -6,7 +6,7 @@
 /*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:53:01 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 05:16:37 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 06:08:46 by yodahani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	init_textures(t_test *game)
 	init_texture_fill(game, &game->game->txt.ea);
 }
 
-void	init_texture_fill(t_test *game,t_img *txt)
+void	init_texture_fill(t_test *game, t_img *txt)
 {
 	char	*path;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yodahani <yodahani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakhay <yakhay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:07:32 by yodahani          #+#    #+#             */
-/*   Updated: 2023/08/14 00:44:06 by yodahani         ###   ########.fr       */
+/*   Updated: 2023/08/14 05:42:10 by yakhay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,37 +52,38 @@ double	petay(float x, int y1)
 {
 	double r;
 	r =sqrt(pow(x,2) + pow(y1,2));
-    if (r < 0)
-        return (2147483647);
-return (r);
+	if (r < 0)
+		return (2147483647);
+	return (r);
 }
 double ft_ray_x(t_test *info, float thet)
 {
-    float y1;
-    float x;
+	float y1;
+	float x;
+	double r;
 
-    info->j = 1;
-    while (1)
-    {
-       if (cos(thet * M_PI/180) >= 0)
-       {
-            x = floor(((info->px/64) + info->j)) * 64 - info->px;
-            y1 = x * tan(thet * M_PI/180);
-			info->xx_pxel = info->px + x;
-			info->yx_pxel = info->py + y1;
-			if (check_to_berk_posi(info, y1, x) == 0)
-				break;
-       }
-       else
-       {
-            x = info->px - floor((info->px/64) - info->j  + 1) * 64;
-            y1 = x * tan((180 - thet) * M_PI/180);
-	;
-			if (check_to_berk_niga(info, y1, x) == 0)
-				break;
-       }
-    }
-	double r = petay(x, y1);
+	info->j = 1;
+	while (1)
+	{
+		if (cos(thet * M_PI/180) >= 0)
+		{
+		x = floor(((info->px/64) + info->j)) * 64 - info->px;
+		y1 = x * tan(thet * M_PI/180);
+		info->xx_pxel = info->px + x;
+		info->yx_pxel = info->py + y1;
+		if (check_to_berk_posi(info, y1, x) == 0)
+		break;
+		}
+		else
+		{
+		x = info->px - floor((info->px/64) - info->j  + 1) * 64;
+		y1 = x * tan((180 - thet) * M_PI/180);
+		;
+		if (check_to_berk_niga(info, y1, x) == 0)
+		break;
+		}
+	}
+	r = petay(x, y1);
 	info->xx_pxel = info->px + cos(thet * M_PI/180) * r;
 	info->yx_pxel = info->py - sin(thet * M_PI/180) * r;
 	return (petay(x, y1));
