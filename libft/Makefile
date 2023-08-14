@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 
-CC = cc
+CC = gcc-11
 CFLAGS =  -Wall -Wextra -Werror
 GNL =	get_next_line_utils.c \
 		get_next_line.c

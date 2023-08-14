@@ -14,36 +14,36 @@
 
 int	presse_key(int key, t_test *test)
 {
-	if (key == 124)
+	if (key == 114)
 		test->rot_rhit = 1;
-	if (key == 123)
+	if (key == 113)
 		test->rot_left = 1;
-	if (key == 13)
+	if (key == 25)
 		test->m_u = 1;
-	if (key == 1)
+	if (key == 39)
 		test->m_d = 1;
-	if (key == 2)
+	if (key == 40)
 		test->m_r = 1;
-	if (key == 0)
+	if (key == 38)
 		test->m_l = 1;
-	if (key == 53)
+	if (key == 65307)
 		ft_echap(test);
 	return (0);
 }
 
 int	relesse_key(int key, t_test *test)
 {
-	if (key == 124)
+	if (key == 114)
 		test->rot_rhit = 0;
-	if (key == 123)
+	if (key == 113)
 		test->rot_left = 0;
-	if (key == 13)
+	if (key == 25)
 		test->m_u = 0;
-	if (key == 1)
+	if (key == 39)
 		test->m_d = 0;
-	if (key == 2)
+	if (key == 40)
 		test->m_r = 0;
-	if (key == 0)
+	if (key == 38)
 		test->m_l = 0;
 	return (0);
 }

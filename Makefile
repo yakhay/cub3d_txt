@@ -2,9 +2,7 @@ define convert_to_objs
 $(addprefix $(1)/, $(patsubst %.c,%.o,$(notdir $(2))))
 endef
 
-
-
-CC=cc
+CC=gcc-11
 CFLAGS=-Wall -Wextra -Werror #-fsanitize=address -g3
 RM=rm -rf
 NAME=cub3D
@@ -24,9 +22,7 @@ all:libft $(NAME)
 	@echo "DONE"
 $(NAME):$(OBJS)
 	@echo "Cub3D is compiling...."
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT)  -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-test:test.o
-	@$(CC) $(CFLAGS) test.c   -lmlx -framework OpenGL -framework AppKit -o test
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lmlx -lm -lX11 -lXext -o $(NAME)
 
 libft:
 	@$(MAKE) -C libft -s
