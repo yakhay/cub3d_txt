@@ -26,7 +26,7 @@ void	draw_wall(t_test *test, int k, int *j, int dir)
 	h = 0;
 	if (test->h_wall > HEIGHT)
 		h = dir / test->h_wall * ((test->h_wall - HEIGHT) / 2);
-	while (*j < test->start + test->h_wall)
+	while (*j < test->start + test->h_wall && *j < HEIGHT)
 	{
 		if (test->v_or_h == 'h' && test->alpha < 180 && test->alpha > 0)
 			put_pixel_in_img(test, k, *j, getcolor(&test->game->txt.no, h));
