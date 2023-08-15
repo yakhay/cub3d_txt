@@ -50,7 +50,6 @@ int	relesse_key(int key, t_test *test)
 
 int	motion(t_test *test)
 {
-		
 	if (test->m_r == 1)
 		mov_rhit(test);
 	if (test->m_l == 1)

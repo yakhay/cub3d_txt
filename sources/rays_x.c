@@ -21,7 +21,7 @@ int	check_to_berk_posi(t_test *info, float y1, float x)
 	y = info->py - y1;
 	i = (int)(y / 64);
 	j = (int)(info->px + x + 1) / 64;
-	if (j >= info->c_len || j < 0 || i < 0 || i >= info->r_len)
+	if (j >= info->c_len - 1 || j < 0 || i < 0 || i >= info->r_len - 1)
 		return (0);
 	if (info->map[i][j] == '1')
 		return (0);
@@ -39,7 +39,7 @@ int	check_to_berk_niga(t_test *info, float y1, float x)
 	y = info->py - y1;
 	i = (int)(y / 64);
 	j = (int)((info->px - x) / 64 -1);
-	if (j >= info->c_len || j < 0 || i < 0 || i >= info->r_len)
+	if (j >= info->c_len - 1 || j < 0 || i < 0 || i >= info->r_len - 1)
 		return (0);
 	if (info->map[i][j] == '1')
 		return (0);
@@ -58,11 +58,20 @@ double	petay(float x, int y1)
 	return (r);
 }
 
+double	dest_x(t_test *info, float thet, float y1, float x)
+{
+	double	r;
+
+	r = petay(x, y1);
+	info->xx_pxel = info->px + cos(thet * M_PI / 180) * r;
+	info->yx_pxel = info->py - sin(thet * M_PI / 180) * r;
+	return (r);
+}
+
 double	ft_ray_x(t_test *info, float thet)
 {
 	float	y1;
 	float	x;
-	double	r;
 
 	info->j = 1;
 	while (1)
@@ -71,8 +80,6 @@ double	ft_ray_x(t_test *info, float thet)
 		{
 			x = floor(((info->px / 64) + info->j)) * 64 - info->px;
 			y1 = x * tan(thet * M_PI / 180);
-			info->xx_pxel = info->px + x;
-			info->yx_pxel = info->py + y1;
 			if (check_to_berk_posi(info, y1, x) == 0)
 				break ;
 		}
@@ -84,8 +91,5 @@ double	ft_ray_x(t_test *info, float thet)
 				break ;
 		}
 	}
-	r = petay(x, y1);
-	info->xx_pxel = info->px + cos(thet * M_PI / 180) * r;
-	info->yx_pxel = info->py - sin(thet * M_PI / 180) * r;
-	return (r);
+	return (dest_x(info, thet, y1, x));
 }

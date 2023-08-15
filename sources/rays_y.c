@@ -21,7 +21,7 @@ int	check_to_berk_posix(t_test *info, float x1, float y)
 	x = x1 + info->px;
 	i = (int)((info->py - floor(y) - 1) / 64);
 	j = (int)(x / 64);
-	if (j >= info->c_len || j < 0 || i < 0 || i >= info->r_len)
+	if (j >= info->c_len -1 || j < 0 || i < 0 || i >= info->r_len - 1)
 		return (0);
 	if (info->map[i][j] == '1')
 		return (0);
@@ -39,7 +39,7 @@ int	check_to_berk_nigax(t_test *info, float x1, float y)
 	x = info->px - x1;
 	i = (int)((info->py + floor(y) + 1) / 64);
 	j = (int)((x) / 64);
-	if (j >= info->c_len || j < 0 || i < 0 || i >= info->r_len)
+	if (j >= info->c_len - 1 || j < 0 || i < 0 || i >= info->r_len - 1)
 		return (0);
 	if (info->map[i][j] == '1')
 		return (0);
@@ -58,11 +58,20 @@ double	peta(float x1, int y)
 	return (r);
 }
 
+double	dest_y(t_test *info, float thet, float y, float x1)
+{
+	double	r;
+
+	r = peta(x1, y);
+	info->xy_pxel = info->px + cos(thet * M_PI / 180) * r;
+	info->yy_pxel = info->py - sin(thet * M_PI / 180) * r;
+	return (r);
+}
+
 double	ft_ray_y(t_test *info, float thet)
 {
 	float	x1;
 	float	y;
-	double	r;
 
 	info->ox = 1;
 	while (1)
@@ -71,7 +80,6 @@ double	ft_ray_y(t_test *info, float thet)
 		{
 			y = info->py - (floor((info->py / 64) - info->ox + 1) * 64);
 			x1 = y / tan(thet * M_PI / 180);
-			info->yy_pxel = info->py - y;
 			if (check_to_berk_posix(info, x1, y) == 0)
 				break ;
 		}
@@ -79,13 +87,9 @@ double	ft_ray_y(t_test *info, float thet)
 		{
 			y = (floor((info->py / 64) + info->ox) * 64) - info->py;
 			x1 = y / tan((thet - 180) * M_PI / 180);
-			info->yy_pxel = info->py + y;
 			if (check_to_berk_nigax(info, x1, y) == 0)
 				break ;
 		}
 	}
-	r = peta(x1, y);
-	info->xy_pxel = info->px + cos(thet * M_PI / 180) * r;
-	info->yy_pxel = info->py - sin(thet * M_PI / 180) * r;
-	return (peta(x1, y));
+	return (dest_y(info, thet, y, x1));
 }

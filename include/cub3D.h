@@ -28,6 +28,8 @@ void	mov_up(t_test *test, float t_rad);
 void	mov_down(t_test *test, float t_rad);
 void	mov_rhit(t_test *test);
 void	mov_left(t_test *test);
+int		is_can_move(t_test *test, float x, float y);
+int		is_des_wall(t_test *test, float x, float y);
 
 int		motion(t_test *test);
 double	ft_ray_x(t_test *info, float thet);

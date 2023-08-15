@@ -12,6 +12,32 @@
 
 #include "../include/cub3D.h"
 
+int	is_can_move(t_test *test, float x, float y)
+{
+	if ((int)(y / 64) >= test->r_len - 1 || (int)(x / 64) >= test->c_len - 1)
+		return (-1);
+	if (test->map[(int)(test->py / 64)][(int)(x / 64)] != '1')
+	{
+		if (test->map[(int)(y / 64)][(int)(test->px / 64)] != '1')
+		{
+			if (test->map[(int)(y / 64)][(int)(x / 64)] != '1')
+				return (0);
+		}
+	}
+	return (-1);
+}
+
+int	is_des_wall(t_test *test, float x, float y)
+{
+	if ((int)(y / 64) >= test->r_len - 1 || (int)(x / 64) >= test->c_len - 1)
+		return (-1);
+	if (test->map[(int)(y / 64)][(int)(x / 64)] != '1')
+	{
+		return (0);
+	}
+	return (-1);
+}
+
 int	mouse_mv(int x, int y, t_test *test)
 {
 	if ((x >= 0 && x < WIDTH) && (y >= 0 && y < HEIGHT))
@@ -26,12 +52,6 @@ int	mouse_mv(int x, int y, t_test *test)
 	return (0);
 }
 
-int	print(int key , t_test *test)
-{
-	(void)test;
-	printf("%d\n",key);
-	return (1);
-}
 int	main(int ac, char **av)
 {
 	t_game	*game;
