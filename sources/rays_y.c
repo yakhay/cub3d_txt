@@ -48,7 +48,7 @@ int	check_to_berk_nigax(t_test *info, float x1, float y)
 	return (1);
 }
 
-double	peta(float x1, int y)
+double	peta(float x1, float y)
 {
 	double	r;
 

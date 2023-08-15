@@ -48,7 +48,7 @@ int	check_to_berk_niga(t_test *info, float y1, float x)
 	return (1);
 }
 
-double	petay(float x, int y1)
+double	petay(float x, float y1)
 {
 	double	r;
 
